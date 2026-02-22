@@ -39,7 +39,7 @@ From the output characteristics, we know that the amplifier operates in the satu
 
 ![DC Load line](Loadline.jpg)
 
-MOSFET is in OFF state or cutoff region when Vgs < Vth. Hence Vout = Vdd. But when Vgs > Vth and Vds >= (Vgs-Vth), MOSFET operates in saturation region, acting as an amplifier. In this region, drain current Id flows through resistor Rd and produces a voltage drop VRd = (Id*Rd) across it. This reduces the output voltage at the drain.
+MOSFET is in OFF state or cutoff region when Vgs < Vth. Hence Vout = Vdd. But when Vgs >= Vth and Vds >= (Vgs-Vth), MOSFET operates in saturation region, acting as an amplifier. In this region, drain current Id flows through resistor Rd and produces a voltage drop VRd = (Id*Rd) across it. This reduces the output voltage at the drain.
 
 ![KVL equation](equation1.png)
 
@@ -49,11 +49,11 @@ When the input voltage at the gate increases, the MOSFET allows more drain curre
 
 Below is the Voltage Transfer characteristics of CS amplifier:
 
-![VTC](vtc.png)
+<img src="vtc.png" width="400">
 
 The VTC of a CS amplifier shows an inverted relationship between input and output — as input voltage increases, output voltage decreases, with the most useful amplification occurring in the saturation region.
 
-Frequency response of CS amplifier:
+**Frequency response of CS amplifier:**
 
 Without coupling capacitor:
 
@@ -61,22 +61,134 @@ Without coupling capacitor:
 
 With coupling capacitor:
 
-![freq_response2](freq_response2.png)
+<img src="freq_response2.png" width="400">
 
 The output capacitor acts like a high-pass filter — it blocks DC, attenuates low-frequency signals, and allows mid-to-high frequency signals to pass with amplification.
 
 ---
 
+Q1) Design a CS amplifier using NMOSFET in tsmc180nmtech.lib in LTSPICE.
 
+Given: Vdd = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
 
+CIRCUIT DIAGRAM:
 
+Without Capacitor:
 
+![CIRCUIT](without_capacitor.png)
 
+With Capacitor:
 
+![CIRCUIT1](With_capacitor.png)
 
+DESIGN CALCULATIONS:
 
+Power = Voltage * Current
 
-The GBWP is not fundamentally changed, but the usable bandwidth is shifted upward, cutting off low-frequency response.
-The coupling capacitor doesn’t increase GBWP; instead, it limits low-frequency gain, effectively narrowing the amplifier’s bandwidth at the bottom end. The GBWP of the MOSFET itself stays the same, but the frequency response curve shifts, so the amplifier is optimized for mid-to-high frequency signals.
+P = Vdd*Id
 
+Id = P/Vdd = 1m/1.8 = 555.56uA
 
+Thus, for Power <= 1mW, Current Id <= 555.56uA
+
+Therefore we choose Id = 200uA
+
+Vd = Vout = 50% Vdd = 50%*(1.8) = 0.9V
+
+To choose the value of Rd, 
+
+Vout = Vdd - (Id*Rd)
+
+0.9 = 1.8 - (200u*Rd)
+
+Rd = 4.5kohm
+
+From the datasheet, Vth = 0.366V
+
+For MOSFET to work in saturation region Vgs >= Vth, therefore consider a value for Vgs which is greater than the threshold value.
+
+let Vgs = 0.9V
+
+Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= Vov , here 1.12V > 0.534V . Its in SATURATION.
+
+From the drain current formula in saturation region, we get the value of W.
+
+![id](id.png)
+
+![k](k.png) = 230.4uA/V^2
+
+Hence, W = 1090nm 
+
+1. DC Operating Point:
+
+To fix the DC operating point, 
+
+![DC_opnt1](DC_opnt_1.png)
+
+Here, Id = 153uA. For Id to be 200uA, we alter the value of W
+
+![DC_opnt2](DC_opnt2.png)
+
+With having L = 180nm and W = 1530.65nm, the drain current Id = 200uA is calculated and verified.
+
+**Calculated: W = 1090nm ; Id = 153uA**
+
+**Simulated: W = 1530.65nm ; Id = 200uA**
+
+The DC biasing ensures that the drain current is set according to the power budget while keeping the MOSFET operating in the saturation region, which is essential for achieving proper and stable amplification.
+
+2. Voltage Transfer Characteristics (Vin vs Vout):
+
+![vtc1](vtc1.png)
+
+The VTC demonstrates the inverted relationship between input and output.
+
+3. Transient Analysis:
+
+![wave](wave.png)
+
+Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
+
+Peak to peak values of Vin = 19.28mV ; Vout = 51.64mV
+
+Therefore, the Practical Gain |Av| = Vout/Vin = 2.67 = 8.5dB
+
+From the theoretical calculations, Transconductance gm = 2Id/Vov = 0.749mmho
+
+|Av| = gm*Rd = 3.37 = 10.55dB
+
+Hence,
+
+**Theoretical |Av| = 10.55dB**
+
+**Practical or simulated |Av| = 8.5dB**
+
+In theory, the MOSFET has infinite output resistance, no parasitic capacitances, and perfect biasing, which leads to higher calculated gain. In simulation, effects such as channel‑length modulation, finite output resistance, parasitic capacitances, and small bias shifts reduce the effective gain. Thus, the simulated gain is lower and more realistic, while the theoretical gain represents the ideal upper limit.
+
+4. Frequency Analysis :
+
+- Without Capacitor
+
+![freq](freq.png)
+
+Bandwidth Bw = 51.892GHz
+
+Gain Bandwidth Product GBwP = Av*Bw = 138.55GHz
+
+- With Capacitor
+
+![freq1](freq1.png)
+
+Bandwidth Bw = 40.52MHz
+
+GBwP = Av*Bw = 108.59MHz
+
+Therefore, GBwP:
+
+**Without Capacitor = 138.55GHz**
+
+**With Capacitor = 108.59MHz**
+
+The presence of the coupling capacitor shifts the frequency response upward, limiting low‑frequency operation and reducing the effective bandwidth. Without the capacitor, the amplifier shows a much wider bandwidth (in the GHz range), but with the capacitor, the usable bandwidth is restricted to the mid‑frequency range (in the MHz range).
+
+Hence a CS Amplifier of Vgs = 0.9V, W = 1530.65nm , L = 180nm , Vdd = 1.8V and Rd = 4.5k is designed and verified for power budget of P = 1uW.
