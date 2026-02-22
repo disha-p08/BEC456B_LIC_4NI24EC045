@@ -79,7 +79,7 @@ Without Capacitor:
 
 With Capacitor:
 
-![CIRCUIT1](With_capacitor.png)
+![CIRCUIT1](With_Capacitor.png)
 
 DESIGN CALCULATIONS:
 
