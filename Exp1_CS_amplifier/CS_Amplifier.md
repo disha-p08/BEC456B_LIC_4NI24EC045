@@ -12,6 +12,7 @@ Out of the three MOSFET amplifier configurations, the Common Source (CS) amplifi
 - Good Input Impedance: It doesn’t load down the previous stage too much, so signals can enter easily.
 - Moderate Output Impedance: It can drive the next stage effectively without too much loss.
 
+**Comparision Table:**
 ![Comparision between different configurations](Comparision_table.png)
 
 
