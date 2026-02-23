@@ -107,7 +107,7 @@ From the datasheet, Vth = 0.366V
 
 For MOSFET to work in saturation region Vgs >= Vth, therefore consider a value for Vgs which is greater than the threshold value.
 
-let Vgs = 0.9V
+let Vgs = 0.9V (from the datasheet)
 
 Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= Vov , here 1.12V > 0.534V . Its in SATURATION.
 
