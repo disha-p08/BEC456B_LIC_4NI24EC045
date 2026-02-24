@@ -173,7 +173,7 @@ In theory, the MOSFET has infinite output resistance, no parasitic capacitances,
 
 Bandwidth Bw = 51.892GHz
 
-Gain Bandwidth Product GBwP = Av*Bw = 138.55GHz
+Gain Bandwidth Product GBwP = Av*Bw = 140.004GHz
 
 - With Capacitor
 
@@ -185,7 +185,7 @@ GBwP = Av*Bw = 108.59MHz
 
 Therefore, GBwP:
 
-**Without Capacitor = 138.55GHz**
+**Without Capacitor = 140.004GHz**
 
 **With Capacitor = 108.59MHz**
 
