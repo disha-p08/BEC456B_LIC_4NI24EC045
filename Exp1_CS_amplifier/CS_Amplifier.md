@@ -191,4 +191,26 @@ Therefore, GBwP:
 
 The presence of the coupling capacitor shifts the frequency response upward, limiting low‑frequency operation and reducing the effective bandwidth. Without the capacitor, the amplifier shows a much wider bandwidth (in the GHz range), but with the capacitor, the usable bandwidth is restricted to the mid‑frequency range (in the MHz range).
 
-Hence a CS Amplifier of Vgs = 0.9V, W = 1530.65nm , L = 180nm , Vdd = 1.8V and Rd = 4.5k is designed and verified for power budget of P = 1uW.
+**RESULTS:**
+
+CS Amplifier of Vgs = 0.9V, W = 1530.65nm , L = 180nm , Vdd = 1.8V and Rd = 4.5k is designed and verified for power budget of P = 1uW.
+- The MOSFET operates in the saturation region.
+- The output waveform is amplified and shows 180° phase inversion.
+- The Gain Bandwidth Product obtained:
+
+   Without Capacitor = 188.084 MHz
+
+   With Capacitor = 188.594 MHz
+- Proper mid-band amplification is observed.
+
+**VALIDATION:**
+
+The phase inversion observed in the output matches the theoretical behavior of a CS amplifier.
+The gain obtained is consistent with theoretical expectation:
+The frequency response partially matches theory, showing proper mid-band behavior and high-frequency attenuation.
+Thus, the simulated results validate the expected operation of the Common Source amplifier.
+
+**INFERENCE:**
+- The circuit successfully amplified the weak input signal. The output signal is significantly larger than the input, demonstrating the transconductance property of the MOSFET.
+- A 180 degree phase shift was observed between the input and output waveforms, which is a characteristic feature of the Common Source configuration.
+- The output waveform remained undistorted for the given input, indicating that the MOSFET is biased correctly in the Saturation Region.
