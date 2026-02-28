@@ -71,7 +71,7 @@ Q1) Design a CS amplifier using NMOSFET in tsmc180nmtech.lib in LTSPICE.
 
 Given: Vdd = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
 
-CIRCUIT DIAGRAM:
+**CIRCUIT DIAGRAM:**
 
 Without Capacitor:
 
@@ -81,7 +81,7 @@ With Capacitor:
 
 ![CIRCUIT1](images/With_Capacitor.png)
 
-DESIGN CALCULATIONS:
+**DESIGN CALCULATIONS:**
 
 Power = Voltage * Current
 
@@ -119,7 +119,7 @@ From the drain current formula in saturation region, we get the value of W.
 
 Hence, W = 1090nm 
 
-1. DC Operating Point:
+**1. DC Operating Point:**
 
 To fix the DC operating point, 
 
@@ -137,13 +137,13 @@ With having L = 180nm and W = 1530.65nm, the drain current Id = 200uA is calcula
 
 The DC biasing ensures that the drain current is set according to the power budget while keeping the MOSFET operating in the saturation region, which is essential for achieving proper and stable amplification.
 
-2. Voltage Transfer Characteristics (Vin vs Vout):
+**2. Voltage Transfer Characteristics (Vin vs Vout):**
 
 ![vtc1](images/vtc1.png)
 
 The VTC demonstrates the inverted relationship between input and output.
 
-3. Transient Analysis:
+**3. Transient Analysis:**
 
 ![wave](images/wave.png)
 
@@ -165,7 +165,7 @@ Hence,
 
 In theory, the MOSFET has infinite output resistance, no parasitic capacitances, and perfect biasing, which leads to higher calculated gain. In simulation, effects such as channel‑length modulation, finite output resistance, parasitic capacitances, and small bias shifts reduce the effective gain. Thus, the simulated gain is lower and more realistic, while the theoretical gain represents the ideal upper limit.
 
-4. Frequency Analysis :
+**4. Frequency Analysis :**
 
 - Without Capacitor
 
