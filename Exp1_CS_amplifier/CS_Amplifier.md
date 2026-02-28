@@ -14,13 +14,13 @@ Out of the three MOSFET amplifier configurations, the Common Source (CS) amplifi
 
 **Comparision Table:**
 
-<img src="Comparision_table.png" width="400">
+<img src="images/Comparision_table.png" width="400">
 
 ---
 
 **Common Source (CS) MOSFET amplifier with a resistive load:**
 
-![CS circuit](circuit.png)
+![CS circuit](images/circuit.png)
 
 - **Input**: Applied at the gate terminal.
 - **Output**: Taken from the drain terminal.
@@ -31,25 +31,25 @@ The amplifier takes a small input signal at the gate and delivers a high voltage
 
 With coupling capacitor:
 
-![circuit2](circuit2.png)
+![circuit2](images/circuit2.png)
 
 The capacitor at the output of a CS amplifier filters out DC and passes the amplified AC signal, making the amplifier practical for real-world use.
 
 From the output characteristics, we know that the amplifier operates in the saturation region of the MOSFET, which is essential for proper amplification. The resistor at the drain converts current into voltage, enabling amplification in the saturation region. 
 
-![DC Load line](Loadline.jpg)
+![DC Load line](images/Loadline.jpg)
 
 MOSFET is in OFF state or cutoff region when Vgs < Vth. Hence Vout = Vdd. But when Vgs >= Vth and Vds >= (Vgs-Vth), MOSFET operates in saturation region, acting as an amplifier. In this region, drain current Id flows through resistor Rd and produces a voltage drop VRd = (Id*Rd) across it. This reduces the output voltage at the drain.
 
-![KVL equation](equation1.png)
+![KVL equation](images/equation1.png)
 
 When the input voltage at the gate increases, the MOSFET allows more drain current to flow. This larger drain current causes a greater voltage drop across the drain resistor (Rd). As a result, the output voltage at the drain decreases causing the output to be 180 degrees out of phase. Thus CS amplifier is called as an inverting amplifier.
 
-![waveform](waveform.png)
+![waveform](images/waveform.png)
 
 Below is the Voltage Transfer characteristics of CS amplifier:
 
-<img src="vtc.png" width="400">
+<img src="images/vtc.png" width="400">
 
 The VTC of a CS amplifier shows an inverted relationship between input and output — as input voltage increases, output voltage decreases, with the most useful amplification occurring in the saturation region.
 
@@ -57,11 +57,11 @@ The VTC of a CS amplifier shows an inverted relationship between input and outpu
 
 Without coupling capacitor:
 
-![freq_response](freq_response.jpg)
+![freq_response](images/freq_response.jpg)
 
 With coupling capacitor:
 
-<img src="freq_response2.png" width="400">
+<img src="images/freq_response2.png" width="400">
 
 The output capacitor acts like a high-pass filter — it blocks DC, attenuates low-frequency signals, and allows mid-to-high frequency signals to pass with amplification.
 
@@ -75,11 +75,11 @@ CIRCUIT DIAGRAM:
 
 Without Capacitor:
 
-![CIRCUIT](without_capacitor.png)
+![CIRCUIT](images/without_capacitor.png)
 
 With Capacitor:
 
-![CIRCUIT1](With_Capacitor.png)
+![CIRCUIT1](images/With_Capacitor.png)
 
 DESIGN CALCULATIONS:
 
@@ -113,9 +113,9 @@ Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= V
 
 From the drain current formula in saturation region, we get the value of W.
 
-![id](id.png)
+![id](images/id.png)
 
-![k](k.png) = 230.4uA/V^2
+![k](images/k.png) = 230.4uA/V^2
 
 Hence, W = 1090nm 
 
@@ -123,11 +123,11 @@ Hence, W = 1090nm
 
 To fix the DC operating point, 
 
-![DC_opnt1](DC_opnt_1.png)
+![DC_opnt1](images/DC_opnt_1.png)
 
 Here, Id = 153uA. For Id to be 200uA, we alter the value of W
 
-![DC_opnt2](DC_opnt2.png)
+![DC_opnt2](images/DC_opnt2.png)
 
 With having L = 180nm and W = 1530.65nm, the drain current Id = 200uA is calculated and verified.
 
@@ -139,13 +139,13 @@ The DC biasing ensures that the drain current is set according to the power budg
 
 2. Voltage Transfer Characteristics (Vin vs Vout):
 
-![vtc1](vtc1.png)
+![vtc1](images/vtc1.png)
 
 The VTC demonstrates the inverted relationship between input and output.
 
 3. Transient Analysis:
 
-![wave](wave.png)
+![wave](images/wave.png)
 
 Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
 
@@ -169,7 +169,7 @@ In theory, the MOSFET has infinite output resistance, no parasitic capacitances,
 
 - Without Capacitor
 
-![freq](freq.png)
+![freq](images/freq.png)
 
 Bandwidth Bw = 51.892GHz
 
@@ -177,7 +177,7 @@ Gain Bandwidth Product GBwP = Av*Bw = 140.004GHz
 
 - With Capacitor
 
-![freq1](freq1.png)
+![freq1](images/freq1.png)
 
 Bandwidth Bw = 40.52MHz
 
