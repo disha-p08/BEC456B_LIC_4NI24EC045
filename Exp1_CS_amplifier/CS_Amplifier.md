@@ -109,7 +109,7 @@ For MOSFET to work in saturation region Vgs >= Vth, therefore consider a value f
 
 let Vgs = 0.9V (> Vth)
 
-Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= Vov , here 1.12V > 0.534V . Its in SATURATION.
+Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= Vov , here 0.9V > 0.534V . Its in SATURATION.
 
 From the drain current formula in saturation region, we get the value of W.
 
