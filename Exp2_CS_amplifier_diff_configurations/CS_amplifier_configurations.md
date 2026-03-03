@@ -1,4 +1,4 @@
-Q1) Design CS amplifier configurations using NMOSFET in tsmc180nmtech.lib in LTSPICE.
+Q1) Design CS amplifier with PMOS active load configuration using NMOSFET in tsmc180nmtech.lib in LTSPICE.
 
 Given: Vdd = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
 
@@ -128,7 +128,7 @@ The DC biasing ensures that the drain current is set according to the power budg
 
 ---
 
-**2. Transient Analysis:**
+**2. TRANSIENT ANALYSIS:**
 
 ![wave](images/waveform3.png)
 
@@ -150,7 +150,7 @@ From the transient analysis, the output remains within saturation limits and doe
 
 ---
 
-**3. AC Analysis:**
+**3. AC ANALYSIS:**
 
 From the theoretical calculations, Transconductance gm1 = 2Id/Vov = (2*200u)/0.25 = 1.6mmho
 
@@ -207,16 +207,40 @@ From the LTspice simulation of the common-source (CS) amplifier:
 
 - Small-Signal AC Gain: The voltage gain |Av| from AC analysis was observed to be approximately 15.384 V/V (≈ 23.741 dB).
 
-    Frequency Response:
+    - Frequency Response:
  
-    Without coupling capacitor: Av ≈ 21.39 dB, Bandwidth (BW) ~189.8 MHz
+         Without coupling capacitor: Av ≈ 21.39 dB, Bandwidth (BW) ~189.8 MHz
 
-    With coupling capacitor: Av ≈ 21.39 dB, BW ~190.2 MHz
+         With coupling capacitor: Av ≈ 21.39 dB, BW ~190.2 MHz
 <br><br>
-    Gain-Bandwidth Product (GBW):
+    - Gain-Bandwidth Product (GBW):
 
-    Without capacitor: ~2227.66 MHz
+         Without capacitor: ~2227.66 MHz
 
-    With capacitor: ~2232.08 MHz
+         With capacitor: ~2232.08 MHz
 
 These results indicate consistent performance with high gain and wide bandwidth, with negligible effect from adding the coupling capacitor.
+<br><br>
+**VALIDATION**
+
+- The transistor operates in the saturation region, ensuring proper amplification.
+
+- The DC drain voltage (~1.1 V) confirms that the MOSFET is properly biased and not in cutoff or triode region.
+
+- Since , the output remains safely within supply voltage range (0 V to 1.8 V), confirming stable operation.
+
+- The amplified and phase-inverted output waveform matches the theoretical behavior of a CS amplifier.
+
+- The coupling capacitor value (1 pF), together with the circuit resistance, results in a cutoff frequency lower than the operating frequency range. Therefore, the capacitor does not significantly affect the gain or bandwidth in the observed region.
+
+Thus, the simulation results are consistent with theoretical expectations.
+<br><br>
+**INFERENCE**
+
+- The CS amplifier configured with TSMC 180 nm technology satisfies the design goals of biasing, gain, and bandwidth under the power constraint (≤ 1 mW). The stage exhibits expectations of a CS amplifier — high voltage gain, 180° phase inversion, and broad frequency response.
+
+- The output swing of 231 mV (peak-to-peak) indicates proper small-signal amplification. The DC bias level (~1.10 V) is slightly above mid-supply (0.9 V), resulting in limited symmetrical swing.
+
+- The observed Gain-Bandwidth Product (GBW) is high, showing that the design is suitable for moderate-frequency analog amplification.
+
+Overall, the simulation confirms that the CS amplifier is operating in the intended region and meets design criteria for gain and frequency performance.
