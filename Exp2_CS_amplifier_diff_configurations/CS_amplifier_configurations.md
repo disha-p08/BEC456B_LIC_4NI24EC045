@@ -134,19 +134,24 @@ The DC biasing ensures that the drain current is set according to the power budg
 
 Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
 
-Peak to peak values of Vin = 20mV ; Vout = 224mV
+Peak to peak values of **Vin = 20mV** ; **Vout = 224mV**
 
-Therefore, the Practical Gain |Av| = Vout/Vin = 2.678 = 8.55dB
+---
 
-From the theoretical calculations, Transconductance gm = 2Id/Vov = 0.749mmho
+**3. AC Analysis:**
 
-|Av| = gm*RD = 3.37 = 10.55dB
+From the theoretical calculations, Transconductance gm1 = 2Id/Vov = (2*200u)/0.25 1.6mmho
 
-Hence,
+lamda = 0.1 V^-1
 
-**Theoretical |Av| = 10.55dB**
+r01 = 1/(lamda*ID) = 1/(0.1 * 200u) = 50kohm
 
-**Practical or simulated |Av| = 8.55dB**
+Similarly, r02 = 50kohm
+<br><br>
+
+Thus,
+
+
 
 In theory, the MOSFET has infinite output resistance, no parasitic capacitances, and perfect biasing, which leads to higher calculated gain. In simulation, effects such as channel‑length modulation, finite output resistance, parasitic capacitances, and small bias shifts reduce the effective gain. Thus, the simulated gain is lower and more realistic, while the theoretical gain represents the ideal upper limit.
 
