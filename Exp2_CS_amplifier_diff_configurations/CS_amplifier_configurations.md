@@ -134,7 +134,19 @@ The DC biasing ensures that the drain current is set according to the power budg
 
 Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
 
-Peak to peak values of **Vin = 20mV** ; **Vout = 224mV**
+Peak to peak value of **Vin(p-p) = 20mV** 
+
+Vout (max) = 1217 mV
+
+Vout (min) = 986 mV
+
+Thus, **Vout (p-p) = 231mV**
+
+and the Vout(DC) = 1.1V
+
+This indicates that the amplifier is biased above mid-supply (0.9V), resulting in limited symmetrical swing.
+
+From the transient analysis, the output remains within saturation limits and does not show distortion, confirming stable operation within allowable swing range.
 
 ---
 
@@ -188,3 +200,23 @@ Therefore, GBwP:
 
 **RESULTS:**
 
+From the LTspice simulation of the common-source (CS) amplifier:
+- DC Operating Point: The biasing ensured that the MOSFETs operate in the saturation region, which is essential for linear amplification and stable gain.
+
+- Transient Response: The input waveform (Vin) of ~20 mVpp produced an output waveform (Vout) of ~231 mVpp with a significantly larger amplitude and a 180° phase shift, confirming that the stage is functioning as a CS amplifier.
+
+- Small-Signal AC Gain: The voltage gain |Av| from AC analysis was observed to be approximately 15.384 V/V (≈ 23.741 dB).
+
+    Frequency Response:
+ 
+    Without coupling capacitor: Av ≈ 21.39 dB, Bandwidth (BW) ~189.8 MHz
+
+    With coupling capacitor: Av ≈ 21.39 dB, BW ~190.2 MHz
+<br><br>
+    Gain-Bandwidth Product (GBW):
+
+    Without capacitor: ~2227.66 MHz
+
+    With capacitor: ~2232.08 MHz
+
+These results indicate consistent performance with high gain and wide bandwidth, with negligible effect from adding the coupling capacitor.
