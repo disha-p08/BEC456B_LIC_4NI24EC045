@@ -153,13 +153,13 @@ Therefore, the Practical Gain |Av| = Vout/Vin = 2.678 = 8.55dB
 
 From the theoretical calculations, Transconductance gm = 2Id/Vov = 0.749mmho
 
-|Av| = gm*RD = 3.37 = 10.55dB
+Av = -gm*RD = -3.37 = 10.55dB
 
 Hence,
 
-**Theoretical |Av| = 10.55dB**
+**Theoretical Av = 10.55dB**
 
-**Practical or simulated |Av| = 8.55dB**
+**Practical or simulated Av = 8.55dB**
 
 In theory, the MOSFET has infinite output resistance, no parasitic capacitances, and perfect biasing, which leads to higher calculated gain. In simulation, effects such as channel‑length modulation, finite output resistance, parasitic capacitances, and small bias shifts reduce the effective gain. Thus, the simulated gain is lower and more realistic, while the theoretical gain represents the ideal upper limit.
 
