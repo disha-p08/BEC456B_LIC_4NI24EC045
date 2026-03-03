@@ -85,31 +85,29 @@ With Capacitor:
 
 Power = Voltage * Current
 
-P = Vdd*Id
+P = VDD*ID
 
-Id = P/Vdd = 1m/1.8 = 555.56uA
+Let ID = 200uA
 
-Thus, for Power <= 1mW, Current Id <= 555.56uA
+Thus, Power = 1.8*200u = 0.36mW which is <= 1mW
 
-Therefore we choose Id = 200uA
+VD = Vout = 50% VDD = 50%*(1.8) = 0.9V
 
-Vd = Vout = 50% Vdd = 50%*(1.8) = 0.9V
+To choose the value of RD, 
 
-To choose the value of Rd, 
+Vout = VDD - (ID*RD)
 
-Vout = Vdd - (Id*Rd)
-
-0.9 = 1.8 - (200u*Rd)
+0.9 = 1.8 - (200u*RD)
 
 Rd = 4.5kohm
 
-From the datasheet, Vth = 0.366V
+From the datasheet, VTH = 0.366V
 
-For MOSFET to work in saturation region Vgs >= Vth, therefore consider a value for Vgs which is greater than the threshold value.
+For MOSFET to work in saturation region VGS >= VTH, therefore consider a value for Vgs which is greater than the threshold value.
 
-let Vgs = 0.9V (> Vth)
+let VGS = 0.9V (> Vth)
 
-Also Vgs - Vt = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , Vds >= Vov , here 0.9V > 0.534V . Its in SATURATION.
+Also VGS - VTH = Vov = 0.9-0.366 = 0.534V. Thus by fundamental concept , VDS >= Vov , here 0.9V > 0.534V . Its in SATURATION.
 
 From the drain current formula in saturation region, we get the value of W.
 
@@ -125,11 +123,11 @@ To fix the DC operating point,
 
 ![DC_opnt1](images/DC_opnt_1.png)
 
-Here, Id = 153uA. For Id to be 200uA, we alter the value of W
+Here, ID = 153uA. For ID to be 200uA, we alter the value of W
 
 ![DC_opnt2](images/DC_opnt2.png)
 
-With having L = 180nm and W = 1530.65nm, the drain current Id = 200uA is calculated and verified.
+With having L = 180nm and W = 1530.65nm, the drain current ID = 200uA is calculated and verified.
 
 **Calculated: W = 1090nm ; Id = 153uA**
 
@@ -155,7 +153,7 @@ Therefore, the Practical Gain |Av| = Vout/Vin = 2.678 = 8.55dB
 
 From the theoretical calculations, Transconductance gm = 2Id/Vov = 0.749mmho
 
-|Av| = gm*Rd = 3.37 = 10.55dB
+|Av| = gm*RD = 3.37 = 10.55dB
 
 Hence,
 
