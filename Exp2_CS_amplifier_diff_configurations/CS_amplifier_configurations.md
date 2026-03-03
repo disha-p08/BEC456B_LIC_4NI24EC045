@@ -140,7 +140,7 @@ Peak to peak values of **Vin = 20mV** ; **Vout = 224mV**
 
 **3. AC Analysis:**
 
-From the theoretical calculations, Transconductance gm1 = 2Id/Vov = (2*200u)/0.25 1.6mmho
+From the theoretical calculations, Transconductance gm1 = 2Id/Vov = (2*200u)/0.25 = 1.6mmho
 
 lamda = 0.1 V^-1
 
@@ -151,58 +151,40 @@ Similarly, r02 = 50kohm
 
 Thus,
 
+![gain](images/gain.png) = -15.384 V/V
 
-
-In theory, the MOSFET has infinite output resistance, no parasitic capacitances, and perfect biasing, which leads to higher calculated gain. In simulation, effects such as channel‑length modulation, finite output resistance, parasitic capacitances, and small bias shifts reduce the effective gain. Thus, the simulated gain is lower and more realistic, while the theoretical gain represents the ideal upper limit.
-
-**4. Frequency Analysis :**
+|Av| = 15.384 V/V = 23.741 dB
+<br><br>
 
 - Without Capacitor
 
-![freq](images/freq.png)
+![freq](images/freq3.png)
 
-Bandwidth Bw = 51.892GHz
+Av = 21.39 dB 
 
-Gain Bandwidth Product GBwP = Av*Bw = 140.004GHz
+Bandwidth Bw = 189.823 MHz
 
+Gain Bandwidth Product GBwP = Av*Bw = 2227.659 MHz
+<br><br>
 - With Capacitor
 
 ![CIRCUIT1](images/circuit31.png)
 
-![freq1](images/freq1.png)
+![freq](images/freq31.png)
 
-Bandwidth Bw = 40.52MHz
+Av = 21.39 dB
 
-GBwP = Av*Bw = 108.59MHz
+Bandwidth Bw = 190.2 MHz
+
+GBwP = Av*Bw = 2232.083 MHz
 
 Therefore, GBwP:
 
-**Without Capacitor = 140.004GHz**
+**Without Capacitor = 2227.659 MHz**
 
-**With Capacitor = 108.59MHz**
+**With Capacitor = 2232.083 MHz**
 
-The presence of the coupling capacitor shifts the frequency response upward, limiting low‑frequency operation and reducing the effective bandwidth. Without the capacitor, the amplifier shows a much wider bandwidth (in the GHz range), but with the capacitor, the usable bandwidth is restricted to the mid‑frequency range (in the MHz range).
+---
 
 **RESULTS:**
 
-CS Amplifier of Vgs = 0.9V, W = 1530.65nm , L = 180nm , Vdd = 1.8V and Rd = 4.5k is designed and verified for power budget of P = 1uW.
-- The MOSFET operates in the saturation region.
-- The output waveform is amplified and shows 180° phase inversion.
-- The Gain Bandwidth Product obtained:
-
-   Without Capacitor = 188.084 MHz
-
-   With Capacitor = 188.594 MHz
-- Proper mid-band amplification is observed.
-
-**VALIDATION:**
-
-The phase inversion observed in the output matches the theoretical behavior of a CS amplifier.
-The gain obtained is consistent with theoretical expectation:
-The frequency response partially matches theory, showing proper mid-band behavior and high-frequency attenuation.
-Thus, the simulated results validate the expected operation of the Common Source amplifier.
-
-**INFERENCE:**
-- The circuit successfully amplified the weak input signal. The output signal is significantly larger than the input, demonstrating the transconductance property of the MOSFET.
-- A 180 degree phase shift was observed between the input and output waveforms, which is a characteristic feature of the Common Source configuration.
-- The output waveform remained undistorted for the given input, indicating
