@@ -1,6 +1,6 @@
-Q1) Design CS amplifier with PMOS active load configuration using NMOSFET in tsmc180nmtech.lib in LTSPICE.
+Q1) Design CS amplifier with PMOS active load configuration in tsmc180nmtech.lib in LTSPICE.
 
-Given: Vdd = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
+Given: VDD = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
 
 **CIRCUIT DIAGRAM:**
 
@@ -136,13 +136,13 @@ Here the blue waveform represents the input voltage and the green waveform repre
 
 Peak to peak value of **Vin(p-p) = 20mV** 
 
-Vout (max) = 1217 mV
+Vout (max) = 1217 mV = 1.217 V
 
-Vout (min) = 986 mV
+Vout (min) = 986 mV = 0.986 V
 
 Thus, **Vout (p-p) = 231mV**
 
-and the Vout(DC) = 1.1V
+and since the Vout(DC) = 1.1V
 
 This indicates that the amplifier is biased above mid-supply (0.9V), resulting in limited symmetrical swing.
 
@@ -152,11 +152,11 @@ From the transient analysis, the output remains within saturation limits and doe
 
 **3. AC ANALYSIS:**
 
-From the theoretical calculations, Transconductance gm1 = 2Id/Vov = (2*200u)/0.25 = 1.6mmho
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6mmho
 
 lamda = 0.1 V^-1
 
-r01 = 1/(lamda*ID) = 1/(0.1 * 200u) = 50kohm
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50kohm
 
 Similarly, r02 = 50kohm
 <br><br>
@@ -244,3 +244,68 @@ Thus, the simulation results are consistent with theoretical expectations.
 - The observed Gain-Bandwidth Product (GBW) is high, showing that the design is suitable for moderate-frequency analog amplification.
 
 Overall, the simulation confirms that the CS amplifier is operating in the intended region and meets design criteria for gain and frequency performance.
+<br><br>
+
+---
+<br><br>
+Q2) Design CS amplifier with PMOS active load and NMOS current source degeneration in tsmc180nmtech.lib in LTSPICE.
+
+Given: VDD = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
+
+**CIRCUIT DIAGRAM:**
+
+Without Capacitor:
+
+![CIRCUIT](images/circuit4.png)
+
+
+**DESIGN CALCULATIONS:**
+
+**1. DC ANALYSIS:**
+
+Power = Voltage * Current
+
+P = VDD*ID
+
+Let ID = 200uA
+
+Thus, Power = 1.8*200u = 0.36mW which is <= 1mW 
+
+and,
+
+Vout = VDD/2 = 1.8/2 = 0.9 V
+<br><br><br>
+For M3 (NMOS) transistor:
+
+Given, the overdrive voltage VOV = 0.25V
+
+From the datasheet, VTH = 0.36V
+
+We know that,
+
+The biasing voltage VB2 = VGS = VOV + VTH = 0.25 + 0.36 = 0.61V
+
+<br><br>
+For M3 to be SATURATION,
+
+VGS >= VTH
+
+0.61 >= 0.36
+
+and VDS >= VOV  
+
+VDS = 0.263 V from the simulation
+
+Hence, 0.263 >= 0.25
+
+Therefore both the conditions are satisfied. Therefore M3 is operating in **SATURATION** region.
+
+<br><br>
+For M1 (NMOS) transistor :
+
+VOV = 0.25V and VTH = 0.36V
+
+Also, the source of M1 = drain of M3
+
+
+
