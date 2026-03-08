@@ -469,6 +469,8 @@ Therefore, GBwP:
 The Common Source (CS) amplifier with both a resistive load and source degeneration demonstrates a reduced voltage gain compared to the standard CS configuration. The simulation confirms that while the peak-to-peak output voltage decreases, the linearity of the signal improves, and the biasing point remains more stable against variations in MOSFET parameters.
 <br><br>
 **Validation:**
+
+
 The simulation data validates the theoretical gain formula:
 
 ![gain](images/gain1.png)
@@ -695,4 +697,12 @@ Therefore, GBwP:
 **With Capacitor = 6211.814 MHz**
 
 ---
+**Results and validation:**
 
+
+The experimental results for the Common Source (CS) amplifier series demonstrate the fundamental trade-offs between gain, stability, and voltage headroom. With a supply voltage (VDD) of 1.8V and a low threshold voltage (VTH) of 0.25V, the circuits benefit from significant overdrive headroom. This allows the transistors to stay deep in the saturation region even at the lowest point of the output swing (0.78V), ensuring the amplifier maintains high linearity and avoids signal clipping.
+
+<br><br>
+**Inference:**
+
+The diode-connected configuration effectively trades high gain for increased bandwidth and linearity. This setup is ideal for integrated circuits where high-value resistors are difficult to fabricate. It demonstrates that using an active load provides a predictable gain dictated by device geometry (W/L ratios) rather than absolute resistance values.
