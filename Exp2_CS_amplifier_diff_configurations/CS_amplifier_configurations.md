@@ -363,9 +363,9 @@ VSG2 >= |VTH|
 
 and VSD2 >= VOV  
 
-VSD = 1.8 - 0.9 = 0.9 V
+VSD2 = VDD - Vout = 1.8 - 0.9 = 0.9 V
 
-Hence, 0.9 >= 0.25
+Hence, 0.9 V >= 0.25 V
 
 Therefore both the conditions are satisfied. Therefore M2 is operating in **SATURATION** region.
 
@@ -461,6 +461,238 @@ Therefore, GBwP:
 **Without Capacitor = 580.436 MHz**
 
 **With Capacitor = 580.375 MHz**
+
+---
+
+**Result:**
+
+The Common Source (CS) amplifier with both a resistive load and source degeneration demonstrates a reduced voltage gain compared to the standard CS configuration. The simulation confirms that while the peak-to-peak output voltage decreases, the linearity of the signal improves, and the biasing point remains more stable against variations in MOSFET parameters.
+<br><br>
+**Validation:**
+The simulation data validates the theoretical gain formula:
+
+![gain](images/gain1.png)
+
+The measured gain aligns with this formula. Additionally, the input and output waveforms remain 180° out of phase, and the source terminal shows a non-zero AC signal, validating the presence of negative feedback.
+<br><br>
+**Inference**
+ * The inclusion of M3 introduces local negative feedback, which stabilizes the voltage gain and increases the input signal swing before reaching distortion.
+ * The implementation of source degeneration sacrifices absolute voltage gain to achieve superior biasing stability and signal linearity. Any observed reduction in bandwidth indicates that the circuit's dominant pole is heavily influenced by the load resistance (RD = ro1||ro2), highlighting that gain-bandwidth optimization requires a precise balance between feedback levels and output impedance.
+
+---
+<br><br>
+Q2) Design CS amplifier with PMOS active load and diode connected NMOS transistor configuration in tsmc180nmtech.lib in LTSPICE.
+
+Given: VDD = 1.8V, Power <= 1mW, CL = 1pF, L = 180nm, Vin = 10mV, f = 1kHz
+
+**CIRCUIT DIAGRAM:**
+
+Without Capacitor:
+
+![CIRCUIT](images/circuit5.png)
+
+
+**DESIGN CALCULATIONS:**
+
+**1. DC ANALYSIS:**
+
+Power = Voltage * Current
+
+P = VDD*ID
+
+Let ID = 200uA
+
+Thus, Power = 1.8*200u = 0.36mW which is <= 1mW 
+
+and,
+
+Vout = VDD/2 = 1.8/2 = 0.9 V
+<br><br><br>
+For M3 (NMOS) transistor:
+
+Given, the overdrive voltage VOV = 0.25V
+
+From the datasheet, VTH = 0.36V
+
+From the circuit we know that,
+
+VG3 = VD3 = VS1
+
+Hence,VGS3 = VG3 = VOV + VTH = 0.25 + 0.36 = 0.61V
+
+<br><br>
+For M3 to be SATURATION,
+
+VGS3 >= VTH
+
+0.61 V >= 0.36 V
+
+and VDS3 >= VOV  
+
+VDS = 0.604 V from the simulation
+
+Hence, 0.604 V >= 0.25 V
+
+Therefore both the conditions are satisfied. Therefore M3 is operating in **SATURATION** region.
+
+<br><br>
+For M1 (NMOS) transistor :
+
+VOV = 0.25V and VTH = 0.36V
+
+VGS1 = VOV + VTH = 0.25 + 0.36 = 0.61 V
+
+Also, VS1 = VD3 = 0.61 V
+
+Hence, Vin = VG1 = VS1 + VGS1 = 0.61 + 0.61 = 1.22 V
+
+<br><br>
+For M1 to be SATURATION,
+
+VGS1 >= VTH
+
+0.61 V >= 0.36 V
+
+and VDS1 >= VOV  
+
+VDS1 = VD1 - VS1 = Vout - VS1 = 0.9 - 0.61 = 0.29 V
+
+Hence, 0.29 V >= 0.25 V
+
+Therefore both the conditions are satisfied. Therefore M1 is operating in **SATURATION** region.
+
+<br><br>                                                                        
+From the drain current formula in saturation region, we get the value of W.
+
+![id](images/id.png)
+
+![k](images/k.png) = 230.4uA/V^2
+
+Hence, W1 = 5um 
+
+Similarly, W3 = 5um
+
+<br><br>
+For M2 (PMOS) transistor:
+
+Given, the overdrive voltage VOV = 0.25V
+
+From the datasheet, VTH = 0.39V
+
+VSG2 = VOV + |VTH| = o.25 + 0.39 = 0.64 V
+
+We know that,
+
+The biasing voltage VB1 = VG2 = VS2 - VSG2 = 1.8 - 0.64 = 1.16 V
+
+<br><br>
+For M2 to be SATURATION,
+
+VSG2 >= |VTH|
+
+0.64 V >= 0.36 V
+
+and VSD2 >= VOV  
+
+VSD2 = VDD - Vout = 1.8 - 0.9 = 0.9 V
+
+Hence, 0.9 >= 0.25
+
+Therefore both the conditions are satisfied. Therefore M2 is operating in **SATURATION** region.
+
+<br><br>
+From the drain current formula in saturation region, we get the value of W.
+
+![id](images/id.png)
+
+![k](images/k.png) = 230.4uA/V^2
+
+Hence, W2 = 11.823um 
+<br><br><br>
+To fix the DC operating point, 
+
+![DC_opnt1](images/DC_opnt5.png)
+
+Initially, we get 
+
+**ID = 30.701uA for W1 and W3 = 5um and W2 = 11.823um**
+
+After altering W values, we get 
+
+**ID = 200.86uA for W1 and W3 = 15.048um and W2 = 35.15um**
+
+
+The DC biasing ensures that the drain current is set according to the power budget while keeping the MOSFET operating in the saturation region, which is essential for achieving proper and stable amplification.
+
+---
+
+**2. TRANSIENT ANALYSIS:**
+
+![wave](images/waveform5.png)
+
+Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
+
+Peak to peak value of **Vin(p-p) = 19.7mV** 
+
+Vout (max) = 1.0629 V
+
+Vout (min) = 0.7837 V
+
+Thus, **Vout (p-p) = 0.2792 V**
+
+and since the Vout(DC) = 0.9 V
+
+This indicates that the amplifier is biased exactly in mid-supply (0.9V), resulting in symmetrical swing.
+
+The output is biased at 0.9 V, keeping all transistors in saturation and it shows the expected 180 deg phase inversion for a Common-Source amplifier.
+
+---
+
+**3. AC ANALYSIS:**
+
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 mmho
+
+lamda = 0.1 V^-1
+
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 kohm
+
+Similarly, r02 = 50 kohm and r03 = 50 kohm
+<br><br>
+
+Thus,
+
+![gain](images/gain1.png) = -20 V/V
+
+|Av| = 20 V/V = 26.02 dB
+<br><br>
+
+- Without Capacitor
+
+![freq](images/freq4.png)
+
+Av = 23.271 dB 
+
+Bandwidth Bw = 426.358 MHz
+
+Gain Bandwidth Product GBwP = Av*Bw = 6213.315 MHz
+<br><br>
+- With Capacitor
+
+![CIRCUIT1](images/circuit51.png)
+
+![freq](images/freq51.png)
+
+Av = 23.271 dB
+
+Bandwidth Bw = 426.255 MHz
+
+GBwP = Av*Bw = 6211.814 MHz
+
+Therefore, GBwP:
+
+**Without Capacitor = 6213.315 MHz**
+
+**With Capacitor = 6211.814 MHz**
 
 ---
 
