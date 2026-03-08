@@ -413,6 +413,8 @@ and since the Vout(DC) = 0.9V
 
 This indicates that the amplifier is biased exactly in mid-supply (0.9V), resulting in symmetrical swing.
 
+The output is biased at 0.9 V, keeping all transistors in saturation and it shows the expected 180 deg phase inversion for a Common-Source amplifier.
+
 ---
 **3. AC ANALYSIS:**
 
@@ -427,7 +429,7 @@ Similarly, r02 = 50 kohm and r03 = 50 kohm
 
 Thus,
 
-![gain](images/gain.png) = -0.49382 V/V
+![gain](images/gain1.png) = -0.49382 V/V
 
 |Av| = 0.49382 V/V = 6.128 dB
 <br><br>
