@@ -701,7 +701,6 @@ Therefore, GBwP:
 
 
 The experimental results for the Common Source (CS) amplifier series demonstrate the fundamental trade-offs between gain, stability, and voltage headroom. With a supply voltage (VDD) of 1.8V and a low threshold voltage (VTH) of 0.25V, the circuits benefit from significant overdrive headroom. This allows the transistors to stay deep in the saturation region even at the lowest point of the output swing (0.78V), ensuring the amplifier maintains high linearity and avoids signal clipping.
-
 <br><br>
 **Inference:**
 
