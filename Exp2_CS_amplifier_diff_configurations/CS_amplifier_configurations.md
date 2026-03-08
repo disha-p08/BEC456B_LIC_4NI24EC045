@@ -330,6 +330,17 @@ Hence, 0.65 V >= 0.25 V
 
 Therefore both the conditions are satisfied. Therefore M1 is operating in **SATURATION** region.
 
+<br><br>                                                                        
+From the drain current formula in saturation region, we get the value of W.
+
+![id](images/id.png)
+
+![k](images/k.png) = 230.4uA/V^2
+
+Hence, W1 = 5um 
+
+Similarly, W3 = 5um
+
 <br><br>
 For M2 (PMOS) transistor:
 
@@ -357,3 +368,97 @@ VSD = 1.8 - 0.9 = 0.9 V
 Hence, 0.9 >= 0.25
 
 Therefore both the conditions are satisfied. Therefore M2 is operating in **SATURATION** region.
+
+<br><br>
+From the drain current formula in saturation region, we get the value of W.
+
+![id](images/id.png)
+
+![k](images/k.png) = 230.4uA/V^2
+
+Hence, W2 = 11.823um 
+<br><br><br>
+To fix the DC operating point, 
+
+![DC_opnt1](images/DC_opnt4.png)
+
+Initially, we get 
+
+**ID = 61.597uA for W1 and W3 = 5um and W2 = 11.823um**
+
+After altering W values, we get 
+
+**ID = 200.708uA for W1 and W3 = 16.60um and W2 = 35.12um**
+
+
+The DC biasing ensures that the drain current is set according to the power budget while keeping the MOSFET operating in the saturation region, which is essential for achieving proper and stable amplification.
+
+---
+
+**2. TRANSIENT ANALYSIS:**
+
+![wave](images/waveform4.png)
+
+Here the blue waveform represents the input voltage and the green waveform represents the output voltage. We can observe the 180 degree phase shift and the amplification of the output signal.
+
+Peak to peak value of **Vin(p-p) = 19.25mV** 
+
+Vout (max) = 938.53 mV = 0.93853 V
+
+Vout (min) = 861.95 mV = 0.86195 V
+
+Thus, **Vout (p-p) = 76.58mV**
+
+and since the Vout(DC) = 0.9V
+
+This indicates that the amplifier is biased exactly in mid-supply (0.9V), resulting in symmetrical swing.
+
+---
+**3. AC ANALYSIS:**
+
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 mmho
+
+lamda = 0.1 V^-1
+
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 kohm
+
+Similarly, r02 = 50 kohm and r03 = 50 kohm
+<br><br>
+
+Thus,
+
+![gain](images/gain.png) = -0.49382 V/V
+
+|Av| = 0.49382 V/V = 6.128 dB
+<br><br>
+
+- Without Capacitor
+
+![freq](images/freq4.png)
+
+Av = 11.973 dB 
+
+Bandwidth Bw = 146.253 MHz
+
+Gain Bandwidth Product GBwP = Av*Bw = 580.436 MHz
+<br><br>
+- With Capacitor
+
+![CIRCUIT1](images/circuit41.png)
+
+![freq](images/freq41.png)
+
+Av = 11.972 dB
+
+Bandwidth Bw = 146.288 MHz
+
+GBwP = Av*Bw = 580.375 MHz
+
+Therefore, GBwP:
+
+**Without Capacitor = 580.436 MHz**
+
+**With Capacitor = 580.375 MHz**
+
+---
+
