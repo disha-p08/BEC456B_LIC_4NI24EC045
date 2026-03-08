@@ -283,16 +283,16 @@ From the datasheet, VTH = 0.36V
 
 We know that,
 
-The biasing voltage VB2 = VGS = VOV + VTH = 0.25 + 0.36 = 0.61V
+The biasing voltage VB2 = VGS3 = VOV + VTH = 0.25 + 0.36 = 0.61V
 
 <br><br>
 For M3 to be SATURATION,
 
-VGS >= VTH
+VGS3 >= VTH
 
-0.61 >= 0.36
+0.61 V >= 0.36 V
 
-and VDS >= VOV  
+and VDS3 >= VOV  
 
 VDS = 0.263 V from the simulation
 
@@ -307,5 +307,53 @@ VOV = 0.25V and VTH = 0.36V
 
 Also, the source of M1 = drain of M3
 
+That is, VS1 = VD3
 
+We know that, VDS3 >= VOV 
 
+Hence, VD3 = VS1 = 0.25 V
+
+Vin = VG1 = VS1 + VGS1 = 0.25 + 0.61 = 0.86 V
+
+<br><br>
+For M1 to be SATURATION,
+
+VGS1 >= VTH
+
+0.61 V >= 0.36 V
+
+and VDS1 >= VOV  
+
+VDS1 = VD1 - VS1 = Vout - VS1 = 0.9 - 0.25 = 0.65 V
+
+Hence, 0.65 V >= 0.25 V
+
+Therefore both the conditions are satisfied. Therefore M1 is operating in **SATURATION** region.
+
+<br><br>
+For M2 (PMOS) transistor:
+
+Given, the overdrive voltage VOV = 0.25V
+
+From the datasheet, VTH = 0.39V
+
+VSG2 = VOV + |VTH| = o.25 + 0.39 = 0.64 V
+
+We know that,
+
+The biasing voltage VB1 = VG2 = VS2 - VSG2 = 1.8 - 0.64 = 1.16 V
+
+<br><br>
+For M2 to be SATURATION,
+
+VSG2 >= |VTH|
+
+0.64 V >= 0.36 V
+
+and VSD2 >= VOV  
+
+VSD = 1.8 - 0.9 = 0.9 V
+
+Hence, 0.9 >= 0.25
+
+Therefore both the conditions are satisfied. Therefore M2 is operating in **SATURATION** region.
