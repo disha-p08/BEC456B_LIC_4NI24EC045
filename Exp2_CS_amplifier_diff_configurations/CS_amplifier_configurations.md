@@ -705,3 +705,24 @@ The experimental results for the Common Source (CS) amplifier series demonstrate
 **Inference:**
 
 The diode-connected configuration effectively trades high gain for increased bandwidth and linearity. This setup is ideal for integrated circuits where high-value resistors are difficult to fabricate. It demonstrates that using an active load provides a predictable gain dictated by device geometry (W/L ratios) rather than absolute resistance values.
+
+---
+**Comparision of all three configurations:**
+
+Resistive Load :
+       
+-High Voltage Gain: Provides the highest potential gain among the three.
+  
+-Large Output Swing: Allows for a wide range of output voltage variation.
+
+Source Degeneration :
+    
+-Improved Linearity: Reduces distortion, making the amplifier more linear.
+       
+-Increased Input Impedance: Higher input resistance due to the feedback effect at the source.
+
+Diode-Connected Load :
+      
+-Better Bandwidth: Typically offers a higher 3dB frequency compared to high-gain resistive loads.
+       
+-Reduced Area: Occupies significantly less space on a silicon chip than a high-value resistor.
