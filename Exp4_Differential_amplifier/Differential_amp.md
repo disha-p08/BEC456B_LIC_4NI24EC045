@@ -19,3 +19,6 @@ Vocm = 0V;
 Vp = -0.7V
 
 __CIRCUIT - 1:__
+
+![CIRCUIT](images/ckt1.png)
+
