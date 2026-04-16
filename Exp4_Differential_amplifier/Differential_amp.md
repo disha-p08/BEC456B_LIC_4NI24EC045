@@ -104,7 +104,7 @@ The simulated gain is 16.15dB
 Frequency at -3dB gain = 5.57GHz  
 Gain Bandwidth product = 35.759GHz
 
-__Results:__
+__RESULTS:__
 
 - The MOS differential amplifier was successfully designed and analyzed for the given specifications.
 - Both NMOS transistors operated in saturation region under the chosen bias conditions.
@@ -113,7 +113,7 @@ __Results:__
 - Linear amplification was observed for input range -&radic;2 VOV < vid <  &radic;2 VOV, while distortion occurred beyond this range.
 - The measured bandwidth was 5.57 GHz, and gain-bandwidth product was 35.759 GHz.
 
-__Inference:__
+__INFERENCE:__
 
 The simulation confirms that the designed differential amplifier satisfies the required operating conditions and performs as expected. The close agreement between theoretical and simulated gain validates the design calculations. The amplifier shows stable linear operation within the allowable differential input range and transitions to nonlinear behavior beyond it, matching theoretical differential amplifier characteristics.
 
@@ -226,5 +226,16 @@ Therefore the theoretical gain is 29.512dB
 ![ac](images/ac2.png)
 
 The simulated gain is 2.763dB  
-Frequency at -3dB gain = 18.116MHz 
-Gain Bandwidth product = 35.434MHz
+Frequency at -3dB gain = 18.116MHz  
+Gain Bandwidth product = 35.434MHz  
+
+__RESULTS:__  
+- The PMOS active-load differential amplifier was successfully designed and biased at the required operating point.
+- Both NMOS input transistors and PMOS active load transistors operate in saturation region.
+-  Linear amplification was observed for input range -&radic;2 VOV < vid <  &radic;2 VOV, while distortion occurred beyond this range.
+- The two output signals are equal in magnitude and opposite in phase, validating proper differential amplification.
+- The simulated gain differs significantly from theoretical gain due to non-ideal transistor effects included in simulation models.
+- Despite the deviation, the amplifier shows proper differential amplification and expected active-load behavior.
+
+__INFERENCE:__  
+The simulation confirms that the amplifier operates in the linear region within the calculated swing limits, and the observed output behavior matches theoretical expectations for a differential amplifier with active load.
