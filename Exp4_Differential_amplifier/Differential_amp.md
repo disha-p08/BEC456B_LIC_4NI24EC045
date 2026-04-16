@@ -41,7 +41,7 @@ For NMOS M1 and M2,
 VG1 = VG2 = Vincm = 0V  
 VGS1 = VG1 - VS1 = 0 - (-0.7) = 0.7V  
 VOV1 = VGS1 - VT = 0.7 - 0.36 = 0.34V  
-VDS1 = VD - VS = 0 - (-0.7) = 0.7V  
+VDS1 = VD1 - VS1 = 0 - (-0.7) = 0.7V  
 
 Since, VGS1 >= VT  --> 0.7V > 0.36V  
 and, VDS1 >= VGS1 - VT --> 0.7V >= 0.34V  
@@ -49,11 +49,11 @@ Both __M1 and M2 are in SATURATION__
 
 Width of M1 and M2 is given by current equation ,  
 ![Current_eqn](images/id.png)  
-Substituting the values of ID1, L, VOV and k' we get, __W = 11.259&mu;m__  
+Substituting the values of ID1, L, VOV and kn' we get, __W = 11.259&mu;m__  
 
 ![dcopnt](images/dc1.png)  
 
-The DC operating point is set.
+Therefore, the DC operating point is set.
 
 - __TRANSIENT ANALYSIS:__
 
@@ -71,19 +71,21 @@ The simulated output waveforms Vout1 and Vout2 remain within the calculated outp
 The two outputs are equal in amplitude and opposite in phase, verifying correct differential amplifier behavior.
 
 The differential input voltage of the amplifier varies within the range:  
-__-&radic;2 < vid <  &radic;2__
+__-&radic;2 VOV < vid <  &radic;2 VOV__  
+-&radic;2 * 0.34 < vid <  &radic;2 * 0.34  
+-0.48V < vid <  0.48V  
 
-__CASE 1: vid <  &radic;2__  
+__CASE 1: vid <  &radic;2 VOV__  
 let vid<sub>p-p</sub> = 100mV
 
 ![diffwave](images/diffwave1.png)
 
-__CASE 2: vid >  &radic;2__  
+__CASE 2: vid >  &radic;2 VOV__  
 let vid<sub>p-p</sub> = 1.6V
 
 ![diffwave](images/diffwave11.png)
 
-For __-&radic;2 < vid <  &radic;2__, the differential amplifier operates linearly with undistorted output. Beyond this range, nonlinear behavior occurs (CASE 2), causing waveform distortion.
+For -&radic;2 VOV < vid <  &radic;2 VOV, the differential amplifier operates linearly with undistorted output. Beyond this range, nonlinear behavior occurs (CASE 2), causing waveform distortion.
 
 - __AC ANALYSIS:__
 
@@ -101,3 +103,128 @@ Therefore the theoretical gain is 14.47dB
 The simulated gain is 16.15dB  
 Frequency at -3dB gain = 5.57GHz  
 Gain Bandwidth product = 35.759GHz
+
+__Results:__
+
+- The MOS differential amplifier was successfully designed and analyzed for the given specifications.
+- Both NMOS transistors operated in saturation region under the chosen bias conditions.
+- The calculated theoretical gain was 14.47 dB, while the simulated gain obtained was 16.15 dB.
+- The output waveforms were equal in amplitude and 180° out of phase, confirming proper differential operation.
+- Linear amplification was observed for input range -&radic;2 VOV < vid <  &radic;2 VOV, while distortion occurred beyond this range.
+- The measured bandwidth was 5.57 GHz, and gain-bandwidth product was 35.759 GHz.
+
+__Inference:__
+
+The simulation confirms that the designed differential amplifier satisfies the required operating conditions and performs as expected. The close agreement between theoretical and simulated gain validates the design calculations. The amplifier shows stable linear operation within the allowable differential input range and transitions to nonlinear behavior beyond it, matching theoretical differential amplifier characteristics.
+
+---
+
+__CIRCUIT - 2:__
+
+![CIRCUIT](images/ckt2.png)
+
+- __DC ANALYSIS:__
+
+Power, P = 1.5mW  
+P = VDD * ID  
+1.5m = 1.8 * ID  
+__ID = ISS = 0.833mA__
+
+Since the 2 branches are identical, current through M1 & M3, __ID1__ = current through M2 & M4, __ID2__ = __ISS/2 = 0.4165mA__
+
+For PMOS M3 and M4,  
+VSG3 = VSG4 = VSD3 = VSD4  
+VG3 = VG4 = VD3 = VD4 = Vout = 0V  
+
+VOV3 = VSG3 - |VT| = (0.9 - 0) - 0.39 = 0.51V  
+VSD3 = VS3 - VD3 = 0.9 - 0 = 0.9V  
+
+Since, VSG3 >= VT  --> 0.9V > 0.39V  
+and, VSD3 >= VOV --> 0.9V >= 0.51V  
+Both __M3 and M4 are in SATURATION__
+
+Width of M3 and M4 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID1, L, VOV and kp' we get, __W = 11.832&mu;m__  
+
+
+For NMOS M1 and M2,  
+VG1 = VG2 = Vincm = 0V  
+VGS1 = VG1 - VS1 = 0 - (-0.7) = 0.7V  
+VOV1 = VGS1 - VT = 0.7 - 0.36 = 0.34V  
+VDS1 = VD1 - VS1 = 0 - (-0.7) = 0.7V  
+
+Since, VGS1 >= VT  --> 0.7V > 0.36V  
+and, VDS1 >= VGS1 - VT --> 0.7V >= 0.34V  
+Both __M1 and M2 are in SATURATION__
+
+Width of M1 and M2 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID1, L, VOV and kn' we get, __W = 11.259&mu;m__  
+
+For NMOS M5,  
+VD5 = VS1 = -0.7V  
+VDS5 = VD5 - VS5 = (-0.7) - (-0.9) = 0.2V  
+
+For M5 to be in Saturation,  
+VDS5 >= VGS5 - VT  
+VGS5 <= VDS5 + VT  
+VG5 - (-0.9) = 0.2 + 0.36  
+VG5 = -0.34V  
+
+Width of M5 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID, L, VOV and kn' we get, __W = 65.078&mu;m__ 
+
+![dcopnt](images/dc2.png)  
+
+Therefore, the DC operating point is set.
+
+- __TRANSIENT ANALYSIS:__
+
+Input swing,  
+Vincm<sub>min</sub> = VGS1 + VDS5 + VS5 = 0.7 + 0.2 - 0.9  = 0V  
+Vincm<sub>max</sub> = Vout + VT = 0 + 0.36 = 0.36V  
+
+Output swing,  
+Voutcm<sub>min</sub> = VS1 + VOV1 = -0.7 + 0.34 = -0.36V   
+Voutcm<sub>max</sub> = VDD - VOV1 = 0.9 - 0.51 = 0.39V  
+
+![wave](images/waveform2.png)
+
+The simulated output waveforms remain within the limits, confirming that both NMOS and PMOS transistors operate in saturation and the amplifier maintains proper linear operation without distortion.
+
+The differential input voltage of the amplifier varies within the range:  
+__-&radic;2 VOV < vid <  &radic;2 VOV__   
+-&radic;2 * 0.34 < vid <  &radic;2 * 0.34  
+-0.48V < vid <  0.48V  
+
+__CASE 1: vid <  &radic;2 VOV__  
+let vid<sub>p-p</sub> = 100mV
+
+![diffwave](images/diffwave2.png)
+
+__CASE 2: vid >  &radic;2 VOV__  
+let vid<sub>p-p</sub> = 800mV
+
+![diffwave](images/diffwave22.png)
+
+For -&radic;2 VOV < vid <  &radic;2 VOV, the differential amplifier operates linearly with undistorted output. Beyond this range, nonlinear behavior occurs (CASE 2), causing waveform distortion.
+
+- __AC ANALYSIS:__
+
+Transconductance, gm = (2*ID1)/VOV = 2.45 mS  
+r01,2 = 1/(&lambda;*ID1) = 24kohm  
+Similarly, r03,4 = 1/(&lambda;*ID1) = 24kohm  
+
+Gain = gm1,2 * (r01,2||r03,4)  
+     = 2.45m * 12k  
+     = 29.4 V/V  
+     = 29.512dB  
+Therefore the theoretical gain is 29.512dB
+
+![ac](images/ac2.png)
+
+The simulated gain is 2.763dB  
+Frequency at -3dB gain = 18.116MHz 
+Gain Bandwidth product = 35.434MHz
