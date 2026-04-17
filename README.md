@@ -3,6 +3,6 @@ This repository contains Linear Integrated Circuits (LIC) lab experiments includ
 Experiments:
 - Experiment 1: Common Source Amplifier
 - Experiment 2: Different Configurations of Common Source Amplifier
-- Experiment 3: Virtual lab: OPAMP 741IC
+- Experiment 3: Virtual lab: OPAMP &mu;741IC
 - Experiment 4: Differential Amplifier
 Click on the respective experiment folder to view detailed documentation.
