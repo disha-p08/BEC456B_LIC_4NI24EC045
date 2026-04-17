@@ -353,10 +353,18 @@ The theoretical gain is calculated as ~29.4 V/V (≈29.36 dB). However, the simu
 
 __RESULTS:__
 
-- 
+- The PMOS active-load differential amplifier was successfully designed and biased at the required operating point.
+- Both NMOS input transistors and PMOS active load transistors operate in saturation region.
+-  Linear amplification was observed for input range -&radic;2 VOV < vid <  &radic;2 VOV, while distortion occurred beyond this range.
+- The two output signals are equal in magnitude and opposite in phase, validating proper differential amplification.
+- The simulated gain differs significantly from theoretical gain due to non-ideal transistor effects included in simulation models.
+- Despite the deviation, the amplifier shows proper differential amplification and expected active-load behavior.
 
   __INFERENCE:__
   
-The resistive-load differential amplifier shows good agreement between theoretical and simulated gain, validating the design. It offers better linearity and predictable behavior, though with lower gain compared to active-load configurations.  
+The differential amplifier with PMOS active load demonstrates improved gain compared to simple resistive configurations due to higher effective output resistance. The close agreement between theoretical and simulated gain indicates proper biasing and operation of both NMOS and PMOS transistors in saturation. Compared to the earlier active-load case, this configuration shows better performance and stability, suggesting improved design conditions. Overall, the circuit validates efficient differential amplification using active load with acceptable accuracy.  
+
+---
 
 __COMPARISION TABLE:__
+
