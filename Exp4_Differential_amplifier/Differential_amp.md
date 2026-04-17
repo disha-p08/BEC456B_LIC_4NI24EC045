@@ -239,3 +239,75 @@ __RESULTS:__
 
 __INFERENCE:__  
 The simulation confirms that the amplifier operates in the linear region within the calculated swing limits, and the observed output behavior matches theoretical expectations for a differential amplifier with active load.
+
+ ---
+
+ __CIRCUIT - 3:__
+
+![CIRCUIT](images/ckt3.png)
+
+- __DC ANALYSIS:__
+
+Power, P = 1.5mW  
+P = VDD * ID  
+1.5m = 1.8 * ID  
+__ID = ISS = 0.833mA__
+
+Since the 2 branches are identical, current through M1 & M3, __ID1__ = current through M2 & M4, __ID2__ = __ISS/2 = 0.4165mA__
+
+For PMOS M3 and M4,  
+VS3 = 0.9V  
+VD3 = 0V  
+For M3 and M4 to be in Saturation,  
+VSD3 >= VSG3 - |VT|  
+VSG3 <= VSD3 + |VT|  
+(0.9) - VG3 = (0.9 - 0) + 0.39  
+VG3 = -0.39V  
+
+Width of M3 and M4 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID1, L, VOV and kp' we get, __W = 3.7996&mu;m__
+
+For NMOS M1 and M2,  
+VG1 = VG2 = Vincm = 0V  
+VGS1 = VG1 - VS1 = 0 - (-0.7) = 0.7V  
+VOV1 = VGS1 - VT = 0.7 - 0.36 = 0.34V  
+VDS1 = VD1 - VS1 = 0 - (-0.7) = 0.7V  
+
+Since, VGS1 >= VT  --> 0.7V > 0.36V  
+and, VDS1 >= VGS1 - VT --> 0.7V >= 0.34V  
+Both __M1 and M2 are in SATURATION__
+
+Width of M1 and M2 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID1, L, VOV and kn' we get, __W = 11.259&mu;m__  
+
+For NMOS M5,  
+VD5 = VS1 = -0.7V  
+VDS5 = VD5 - VS5 = (-0.7) - (-0.9) = 0.2V  
+
+For M5 to be in Saturation,  
+VDS5 >= VGS5 - VT  
+VGS5 <= VDS5 + VT  
+VG5 - (-0.9) = 0.2 + 0.36  
+VG5 = -0.34V  
+
+Width of M5 is given by current equation ,  
+![Current_eqn](images/id.png)  
+Substituting the values of ID, L, VOV and kn' we get, __W = 65.078&mu;m__ 
+
+![dcopnt](images/dc3.png)  
+
+Therefore, the DC operating point is set.
+
+- __TRANSIENT ANALYSIS:__
+
+Input swing,  
+Vincm<sub>min</sub> = VGS1 + VDS5 + VS5 = 0.7 + 0.2 - 0.9  = 0V  
+Vincm<sub>max</sub> = Vout + VT = 0 + 0.36 = 0.36V  
+
+Output swing,  
+Voutcm<sub>min</sub> = VS1 + VOV1 = -0.7 + 0.34 = -0.36V   
+Voutcm<sub>max</sub> = VDD - VOV1 = 0.9 - 0.51 = 0.39V  
+
+![wave](images/waveform2.png)
