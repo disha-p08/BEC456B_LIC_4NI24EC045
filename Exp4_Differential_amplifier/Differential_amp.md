@@ -102,7 +102,7 @@ Therefore the theoretical gain is 14.47dB
 
 The simulated gain is 16.15dB  
 Frequency at -3dB gain = 5.57GHz  
-Gain Bandwidth product = 35.759GHz
+Gain Bandwidth product = 35.756GHz
 
 __RESULTS:__
 
@@ -183,7 +183,7 @@ Therefore, the DC operating point is set.
 - __TRANSIENT ANALYSIS:__
 
 Input swing,  
-Vincm<sub>min</sub> = VGS1 + VDS5 + VS5 = 0.7 + 0.2 - 0.9  = 0V  
+Vincm<sub>min</sub> = VGS1 + VS1 = 0.7 - 0.7  = 0V  
 Vincm<sub>max</sub> = Vout + VT = 0 + 0.36 = 0.36V  
 
 Output swing,  
@@ -220,14 +220,14 @@ Similarly, r03,4 = 1/(&lambda;*ID1) = 24kohm
 Gain = gm1,2 * (r01,2||r03,4)  
      = 2.45m * 12k  
      = 29.4 V/V  
-     = 29.512dB  
-Therefore the theoretical gain is 29.512dB
+     = 29.36dB  
+Therefore the theoretical gain is 29.36dB
 
 ![ac](images/ac2.png)
 
 The simulated gain is 2.763dB  
 Frequency at -3dB gain = 18.116MHz  
-Gain Bandwidth product = 35.434MHz  
+Gain Bandwidth product = 24.9MHz  
 
 __RESULTS:__  
 - The PMOS active-load differential amplifier was successfully designed and biased at the required operating point.
@@ -303,11 +303,48 @@ Therefore, the DC operating point is set.
 - __TRANSIENT ANALYSIS:__
 
 Input swing,  
-Vincm<sub>min</sub> = VGS1 + VDS5 + VS5 = 0.7 + 0.2 - 0.9  = 0V  
+Vincm<sub>min</sub> = VGS1 + VS1 = 0.7 - 0.7 = 0V  
 Vincm<sub>max</sub> = Vout + VT = 0 + 0.36 = 0.36V  
 
 Output swing,  
 Voutcm<sub>min</sub> = VS1 + VOV1 = -0.7 + 0.34 = -0.36V   
-Voutcm<sub>max</sub> = VDD - VOV1 = 0.9 - 0.51 = 0.39V  
+Voutcm<sub>max</sub> = VDD - VOV3 = 0.9 - 0.9 = 0V  
 
-![wave](images/waveform2.png)
+![wave](images/waveform3.png)
+
+From the mathematical analysis, the maximum output voltage is obtained as 0V . This implies that for Vout > 0 , the PMOS load transistor would leave saturation and enter the triode region, violating the required operating condition for active load behavior. However, simulation shows the output exceeding 0V, indicating that the PMOS is no longer strictly in saturation in that region. Thus, while the calculated limit ensures proper saturation operation, exceeding it may lead to reduced gain and deviation from ideal differential amplifier performance.  
+
+The differential input voltage of the amplifier varies within the range:  
+__-&radic;2 VOV < vid <  &radic;2 VOV__   
+-&radic;2 * 0.34 < vid <  &radic;2 * 0.34  
+-0.48V < vid <  0.48V  
+
+__CASE 1: vid <  &radic;2 VOV__  
+let vid<sub>p-p</sub> = 100mV
+
+![diffwave](images/diffwave3.png)
+
+__CASE 2: vid >  &radic;2 VOV__  
+let vid<sub>p-p</sub> = 800mV
+
+![diffwave](images/diffwave33.png)
+
+For -&radic;2 VOV < vid <  &radic;2 VOV, the differential amplifier operates linearly with undistorted output. Beyond this range, nonlinear behavior occurs (CASE 2), causing waveform distortion.
+
+- __AC ANALYSIS:__
+
+Transconductance, gm = (2*ID1)/VOV = 2.45 mS  
+r01,2 = 1/(&lambda;*ID1) = 24kohm  
+Similarly, r03,4 = 1/(&lambda;*ID1) = 24kohm  
+
+Gain = gm1,2 * (r01,2||r03,4)  
+     = 2.45m * 12k  
+     = 29.4 V/V  
+     = 29.36dB  
+Therefore the theoretical gain is 29.36dB
+
+![ac](images/ac3.png)
+
+The simulated gain is 9.607dB  
+Frequency at -3dB gain = 10.054GHz    
+Gain Bandwidth product = 30.3GHz  
