@@ -360,7 +360,7 @@ __RESULTS:__
 - The simulated gain differs significantly from theoretical gain due to non-ideal transistor effects included in simulation models.
 - Despite the deviation, the amplifier shows proper differential amplification and expected active-load behavior.
 
-  __INFERENCE:__
+__INFERENCE:__
   
 The differential amplifier with PMOS active load demonstrates improved gain compared to simple resistive configurations due to higher effective output resistance. The close agreement between theoretical and simulated gain indicates proper biasing and operation of both NMOS and PMOS transistors in saturation. Compared to the earlier active-load case, this configuration shows better performance and stability, suggesting improved design conditions. Overall, the circuit validates efficient differential amplification using active load with acceptable accuracy.  
 
@@ -368,3 +368,17 @@ The differential amplifier with PMOS active load demonstrates improved gain comp
 
 __COMPARISION TABLE:__
 
+| Parameter | Circuit 1 (Resistive Load) | Circuit 2 (Active Load) | Circuit 3 (Active Load) |
+|----------|----------------------------|--------------------------|--------------------------|
+| Load Type | Resistor R<sub>D</sub> | PMOS Active Load | PMOS Active Load |
+| Gain Expression | A<sub>v</sub> = g<sub>m</sub>R<sub>D</sub> | A<sub>v</sub> = g<sub>m</sub>(r<sub>on</sub> \|\| r<sub>op</sub>) | A<sub>v</sub> = g<sub>m</sub>(r<sub>on</sub> \|\| r<sub>op</sub>) |
+| Theoretical Gain | ~14.47 dB | ~29.36 dB | ~29.36 dB |
+| Simulated Gain | ~16.15 dB | ~2.763 dB | ~9.6 dB |
+| Gain Accuracy | Good match | Large deviation | Moderate deviation |
+| Bandwidth | 5.57 GHz | 18.116 MHz | 10.054 GHz |
+| GBP | ~35.7 GHz | ~24.8 MHz | ~30.3 GHz |
+| Output Type | Differential | Single-ended | Single-ended |
+| Linearity | Good | Reduced | Moderate |
+| Output Swing | Large | Limited | Limited |
+
+The resistive-load differential amplifier (Circuit 1) exhibits stable and predictable performance with good agreement between theoretical and simulated gain, along with high bandwidth and linear operation. While active loads theoretically enhance gain, their practical performance is highly dependent on device parameters and operating conditions, as observed from the variation across the circuits.
