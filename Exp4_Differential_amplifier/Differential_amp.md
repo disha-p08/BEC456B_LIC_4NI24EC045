@@ -348,3 +348,20 @@ Therefore the theoretical gain is 29.36dB
 The simulated gain is 9.607dB  
 Frequency at -3dB gain = 10.054GHz    
 Gain Bandwidth product = 30.3GHz  
+
+The theoretical gain is calculated as ~29.4 V/V (≈29.36 dB). However, the simulated gain is significantly lower due to non-ideal effects such as channel length modulation, large overdrive voltage of PMOS load, and reduced output resistance.  
+
+__RESULTS:__
+
+- The MOS differential amplifier with resistive load was successfully designed and analyzed.
+- Both NMOS transistors operate in the saturation region under the chosen bias conditions, ensuring proper amplifier operation.
+- The theoretical gain obtained using half-circuit analysis is 14.47 dB, while the simulated gain is 16.15 dB.
+- The output signals are equal in magnitude and 180° out of phase, confirming correct differential behavior.
+- The measured -3 dB bandwidth is 5.57 GHz, and the gain-bandwidth product (GBP) is 35.7 GHz.
+- The simulated results closely follow theoretical expectations with minor deviation.
+
+  __INFERENCE:__
+  
+The resistive-load differential amplifier shows good agreement between theoretical and simulated gain, validating the design. It offers better linearity and predictable behavior, though with lower gain compared to active-load configurations.  
+
+__COMPARISION TABLE:__
