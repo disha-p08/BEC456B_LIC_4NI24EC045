@@ -44,11 +44,13 @@ and Vout<sub>p-p</sub> = 5V
 ![ac](images/ac2.png)  
 
 Simulated gain = 0dB = 1 V/V  
-Hence, GBP = 0Hz  
+Bandwidth = 1.371 MHz
+GBP = 1.371 MHz  
 
 - The frequency response shows a **flat gain of 0 dB** (unity gain) over a wide range of low frequencies, confirming ideal buffer behavior.
 - Unlike amplifiers, there is **no gain increase**, and the magnitude remains constant at **1 V/V**.
 - Since the gain is unity, the voltage follower achieves the **maximum possible bandwidth** compared to other closed-loop configurations.
+- The observed bandwidth of the voltage follower is approximately equal to the op-amp’s gain-bandwidth product (~1 MHz).
 
 **Inference:**
 
