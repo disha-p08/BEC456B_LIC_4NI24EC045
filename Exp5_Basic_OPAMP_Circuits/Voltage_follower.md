@@ -11,5 +11,14 @@ The circuit employs **100% negative feedback**, which forces the op-amp to opera
 <br><br>
 
  Output Voltage Equation: **Vout = Vin**
-
  
+---
+
+ **Design OPAMP based circuit and analyze the frequency response**
+
+Vcc = 15 V  
+-Vcc = -15 V   
+RL = 2.2K&ohm;  
+
+**Circuit:**
+
