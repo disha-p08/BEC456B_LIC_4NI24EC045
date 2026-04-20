@@ -19,3 +19,43 @@ where, Rf is the feedback resistor
 
 ---
 
+**Design OPAMP based circuit and analyze the frequency response**
+
+Vcc = 15 V  
+-Vcc = -15 V   
+A<sub>v</sub> = +5 V/V  
+
+**Design:**  
+A<sub>v</sub> = +5 V/V  
+
+![gain_formula](images/gain.png)  
+
+5 = 1 + (Rf/R1)  
+(Rf/R1) = 4  
+**Rf = 4R1**
+
+Choosing R1 = 1K&ohm;  
+Therefore, Rf = 4K&ohm;
+
+**Circuit:**  
+
+![circuit](images/ckt1.png)  
+<br><br>
+**Input and Output Waveforms:**
+
+![wave](images/wave1.png)  
+
+It can be seen that Vin<sub>p-p</sub> = 1V and Vout<sub>p-p</sub> = 5V
+
+Gain = Vout/Vin = 5V/1V = 5 V/V  
+
+
+**Frequency Response**
+
+![ac](images/ac1.png)    
+![ac](images/ac11.png)    
+
+Simulated gain = 13.97 dB = 4.99 V/V  
+Frequency at -3dB gain = 215.358KHz  
+GBP = 1074.636KHz
+
