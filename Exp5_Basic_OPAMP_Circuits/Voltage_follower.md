@@ -44,7 +44,7 @@ and Vout<sub>p-p</sub> = 5V
 ![ac](images/ac2.png)  
 
 Simulated gain = 0dB = 1 V/V  
-Bandwidth = 1.371 MHz
+Bandwidth = 1.371 MHz  
 GBP = 1.371 MHz  
 
 - The frequency response shows a **flat gain of 0 dB** (unity gain) over a wide range of low frequencies, confirming ideal buffer behavior.
