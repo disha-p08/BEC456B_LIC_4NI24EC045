@@ -22,3 +22,20 @@ RL = 2.2K&ohm;
 
 **Circuit:**
 
+![ckt](images/ckt2.png)  
+<br>
+
+**Input and Output Waveforms:**
+
+![waveform](images/wave2.png)  
+<br>
+
+Here, Vin<sub>p-p</sub> = 5V
+and Vout<sub>p-p</sub> = 5V
+
+**Frequency Response:**
+
+![ac](images/ac2.png)  
+
+Simulated gain = 0dB  
+Hence, GBP = 0Hz
