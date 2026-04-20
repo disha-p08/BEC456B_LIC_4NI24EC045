@@ -99,7 +99,7 @@ Vout = VDD - (ID*RD)
 
 0.9 = 1.8 - (200u*RD)
 
-Rd = 4.5kohm
+Rd = 4.5K&ohm;
 
 From the datasheet, VTH = 0.366V
 
