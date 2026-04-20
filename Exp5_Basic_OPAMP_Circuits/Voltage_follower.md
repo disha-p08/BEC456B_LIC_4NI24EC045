@@ -16,6 +16,7 @@ The circuit employs **100% negative feedback**, which forces the op-amp to opera
 
  **Design OPAMP based circuit and analyze the frequency response**
 
+Given:  
 Vcc = 15 V  
 -Vcc = -15 V   
 RL = 2.2K&ohm;  
