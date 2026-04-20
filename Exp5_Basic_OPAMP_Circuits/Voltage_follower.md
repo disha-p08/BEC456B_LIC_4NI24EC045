@@ -31,11 +31,28 @@ RL = 2.2K&ohm;
 <br>
 
 Here, Vin<sub>p-p</sub> = 5V
-and Vout<sub>p-p</sub> = 5V
+and Vout<sub>p-p</sub> = 5V  
+
+- The output waveform is observed to be exactly **in phase** with the input waveform, confirming correct buffer operation.
+- The amplitude of the output signal is equal to the input amplitude, indicating a gain of 1 (unity gain).
+- This verifies the theoretical relation: **Vout = Vin**
+- The output perfectly tracks the input signal with **no attenuation or amplification**, as expected from a voltage follower.
+- The waveform shape is preserved without distortion, indicating that the op-amp is operating in its **linear region**.
 
 **Frequency Response:**
 
 ![ac](images/ac2.png)  
 
-Simulated gain = 0dB  
-Hence, GBP = 0Hz
+Simulated gain = 0dB = 1 V/V  
+Hence, GBP = 0Hz  
+
+- The frequency response shows a **flat gain of 0 dB** (unity gain) over a wide range of low frequencies, confirming ideal buffer behavior.
+- Unlike amplifiers, there is **no gain increase**, and the magnitude remains constant at **1 V/V**.
+- Since the gain is unity, the voltage follower achieves the **maximum possible bandwidth** compared to other closed-loop configurations.
+
+**Inference:**
+
+- The voltage follower produces an output **equal in amplitude and phase** to the input, confirming **unity gain operation**.
+- It acts as an effective **buffer**, providing high input impedance, low output impedance, and stable frequency response.
+- The voltage follower maintains **signal integrity at low frequencies** while providing high bandwidth and impedance isolation, making it ideal as a buffer stage.
+- At higher frequencies, deviation from unity gain highlights the **practical limitations of real op-amps**.
