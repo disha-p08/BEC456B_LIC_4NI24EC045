@@ -35,7 +35,7 @@ Since the 2 branches are identical, current through M1, __ID1__ = current throug
 Applying KVL,   
 Vout = VDD - IDRD  
 RD = (VDD - Vo)/ID  
-__RD = 2.16Kohm__
+__RD = 2.16K&ohm;__
 
 For NMOS M1 and M2,  
 VG1 = VG2 = Vincm = 0V  
