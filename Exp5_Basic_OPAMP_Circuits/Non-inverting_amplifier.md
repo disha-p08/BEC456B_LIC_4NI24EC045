@@ -21,6 +21,7 @@ where, Rf is the feedback resistor
 
 **Design OPAMP based circuit and analyze the frequency response**
 
+Given:  
 Vcc = 15 V  
 -Vcc = -15 V   
 A<sub>v</sub> = +5 V/V  
