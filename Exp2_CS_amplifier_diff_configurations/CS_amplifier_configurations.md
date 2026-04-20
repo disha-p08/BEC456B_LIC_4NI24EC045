@@ -29,7 +29,7 @@ We know that, by Ohm's law,
 
 VS = IDRS
 
-RS = VD/ID = 0.2/200u = 1kohm
+RS = VD/ID = 0.2/200u = 1K&ohm;
 <br><br><br>
 For M1 (NMOS) transistor:
 
@@ -152,13 +152,13 @@ From the transient analysis, the output remains within saturation limits and doe
 
 **3. AC ANALYSIS:**
 
-From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6mmho
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6m&mho;
 
 lamda = 0.1 V^-1
 
-r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50kohm
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50K&ohm;
 
-Similarly, r02 = 50kohm
+Similarly, r02 = 50K&ohm;
 <br><br>
 
 Thus,
@@ -418,13 +418,13 @@ The output is biased at 0.9 V, keeping all transistors in saturation and it show
 ---
 **3. AC ANALYSIS:**
 
-From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 mmho
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 m&mho;
 
 lamda = 0.1 V^-1
 
-r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 kohm
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 K&ohm;
 
-Similarly, r02 = 50 kohm and r03 = 50 kohm
+Similarly, r02 = 50 kohm and r03 = 50 K&ohm;
 <br><br>
 
 Thus,
@@ -652,13 +652,13 @@ The output is biased at 0.9 V, keeping all transistors in saturation and it show
 
 **3. AC ANALYSIS:**
 
-From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 mmho
+From the theoretical calculations, Transconductance gm1 = 2id/vov = (2*200u)/0.25 = 1.6 m&mho;
 
 lamda = 0.1 V^-1
 
-r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 kohm
+r01 = 1/(lamda*id) = 1/(0.1 * 200u) = 50 K&ohm;
 
-Similarly, r02 = 50 kohm and r03 = 50 kohm
+Similarly, r02 = 50 kohm and r03 = 50 K&ohm;
 <br><br>
 
 Thus,
