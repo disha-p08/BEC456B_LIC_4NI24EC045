@@ -29,5 +29,26 @@ x<sub>2</sub>(t) = -1.5V
 Vcc = 12 V  
 -Vcc = -12 V   
 
-**Circuit:**
+**Design:**
 
+y<sub>1</sub>(t) = -[5x<sub>1</sub>(t) + x<sub>2</sub>(t)] is of the form   
+<img width="216" height="51" alt="image" src="https://github.com/user-attachments/assets/169abd36-5f20-416a-aec5-7b6232492ca1" />
+
+Here,  
+<img width="147" height="56" alt="image" src="https://github.com/user-attachments/assets/4b72436c-f46f-420a-bca5-513589b95e62" />
+
+According to the question,  
+For V1,  
+(-Rf/R1) = -5  
+Rf = 5*R1
+
+Assuming **R1 = 1K&ohm;,**    
+**Rf = 5*1K&ohm; = 5K&ohm;**
+
+Similarly,
+For V2,  
+(-Rf/R2) = -1  
+Rf = R2
+
+Since Rf = 5K&ohm;,  
+**R2 = 5K&ohm;**
