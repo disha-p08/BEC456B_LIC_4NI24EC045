@@ -79,9 +79,9 @@ then Rb = 2K&ohm;**
 
 ![ac](images/ac2.png)
 
-Simulated gain = 6.0199 dB = 1.9999 V/V 
+Simulated gain = 6.0199 dB = 1.9999 V/V  
 Bandwidth = 149.65441KHz  
-GBP = 299.2938KHz
+GBP = 299.2938KHz  
 
 - The AC analysis shows a midband gain of approximately **6.0199 dB**, which corresponds to **1.9999 V/V**.
 - The gain remains constant in the low-frequency region, confirming stable operation and accurate difference amplification.
