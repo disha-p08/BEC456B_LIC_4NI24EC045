@@ -29,5 +29,5 @@ x<sub>2</sub>(t) = -1.5V
 Vcc = 12 V  
 -Vcc = -12 V   
 
-**Design:**
+**Circuit:**
 
