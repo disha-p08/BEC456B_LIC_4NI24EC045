@@ -52,3 +52,6 @@ Rf = R2
 
 Since Rf = 5K&ohm;,  
 **R2 = 5K&ohm;**
+
+**Circuit:**
+![!circuit](ckt1.png)
