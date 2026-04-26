@@ -51,7 +51,18 @@ For V2,
 Rf = R2
 
 Since Rf = 5K&ohm;,  
-**R2 = 5K&ohm;**
-
+**R2 = 5K&ohm;**  
+<br><br>
 **Circuit:**
-![!circuit](ckt1.png)
+
+![circuit](images/ckt1.png)
+<br><br>
+**Input and Output Waveforms:**
+
+![waveform](images/wave1.png)
+<br><br>
+![waveform](images/wave11.png)
+
+**AC Analysis:**
+
+![ac](images/ac1.png)
