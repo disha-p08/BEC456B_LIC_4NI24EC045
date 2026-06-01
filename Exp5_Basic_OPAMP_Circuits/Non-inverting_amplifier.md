@@ -77,3 +77,4 @@ GBP = 1074.636KHz
 - The frequency response demonstrates the **gain-bandwidth trade-off**, where higher gain results in reduced bandwidth.
 - The absence of distortion indicates proper biasing and operation of the op-amp within its limits.
 - Overall, the non-inverting amplifier proves to be a **stable and reliable configuration** for signal amplification with high input impedance and predictable gain.
+
