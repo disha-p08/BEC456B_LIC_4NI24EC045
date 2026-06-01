@@ -38,8 +38,8 @@ y<sub>3</sub>(t) = 2x<sub>1</sub>(t) - 6x<sub>2</sub>(t)] is of the form
 
 According to the question,  
 For V2,  
-(-Rf/R2) = -6  
-Rf = 6R2
+(-Rf/R1) = -6  
+Rf = 6R1
 
 Assuming **R1 = 1K&ohm;,**    
 **Rf = 6*1K&ohm; = 6K&ohm;**  
