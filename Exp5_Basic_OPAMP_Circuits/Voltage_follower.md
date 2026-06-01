@@ -23,7 +23,7 @@ RL = 2.2K&ohm;
 
 **Circuit:**
 
-![ckt](images/ckt2.png)  
+![ckt](images/ckt21.png)  
 <br>
 
 **Input and Output Waveforms:**
