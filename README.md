@@ -7,6 +7,6 @@ This repository contains Linear Integrated Circuits (LIC) lab experiments includ
 - Experiment 4: Differential Amplifier
 - Experiment 5: Basic Operational Amplifier Circuits
 - Experiment 6: Adder and Subtractor Circuit using OPAMP
-- Experiment 7: Differentiator using OPAMP
+
 
 Click on the respective experiment folder to view detailed documentation.
